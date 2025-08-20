@@ -1,1 +1,22 @@
+version: "3.9"
+
 services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0
+    container_name: keycloak
+    command: start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8081:8080"   # Keycloak disponible en localhost:8081
+
+  springboot-app:
+    build: .
+    container_name: springboot-app
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - "9090:9090"   # Tu app disponible en localhost:9090
+    depends_on:
+      - keycloak

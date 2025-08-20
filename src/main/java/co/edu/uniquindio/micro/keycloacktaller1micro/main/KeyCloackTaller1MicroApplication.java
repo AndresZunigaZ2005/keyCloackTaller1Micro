@@ -1,4 +1,4 @@
-package co.edu.uniquindio.micro.keycloacktaller1micro;
+package co.edu.uniquindio.micro.keycloacktaller1micro.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
